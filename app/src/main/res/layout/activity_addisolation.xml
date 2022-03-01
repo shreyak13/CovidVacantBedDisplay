@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addisolation"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_margin="20dp">
+    <ImageButton
+        android:id="@+id/icimageButton"
+        android:layout_width="330dp"
+        android:layout_height="99dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hospital name or centre Name"
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="73dp" />
+    <EditText
+        android:id="@+id/icname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type(Government or Private)"
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="73dp" />
+    <EditText
+        android:id="@+id/ictype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Bed capacity "
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="73dp" />
+    <EditText
+        android:id="@+id/iccapsity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Normal Bed"
+                android:textStyle="bold|italic"
+                android:gravity="center"/>
+            <EditText
+                android:id="@+id/inormalbed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                /></LinearLayout>
+        <LinearLayout
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Oxygen bed"
+                android:textStyle="bold|italic"
+                android:gravity="center"/>
+            <EditText
+                android:id="@+id/ioxygenbed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="73dp" />
+    <EditText
+        android:id="@+id/icaddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="contact"
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="73dp" />
+    <EditText
+        android:id="@+id/iccontact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/icupdate"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="update"/>
+
+
+</LinearLayout>

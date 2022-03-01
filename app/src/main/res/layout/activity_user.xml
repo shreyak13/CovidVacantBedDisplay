@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+   >
+
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User Page"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:id="@+id/hospital"
+            android:layout_width="110dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Hospital"/>
+
+        <Button
+            android:id="@+id/ioslation"
+            android:layout_width="110dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="2dp"
+
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="50dp"
+            android:text="Isolation Centre" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:id="@+id/ambulance"
+            android:layout_width="110dp"
+
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="50dp"
+            android:text="Ambulance"/>
+
+        <Button
+            android:id="@+id/userquery"
+            android:layout_width="110dp"
+
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="50dp"
+            android:text="Ask Question" />
+    </LinearLayout>
+
+
+        <Button
+        android:id="@+id/userlogout"
+        android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+
+        android:text="Logout"/>
+</LinearLayout>

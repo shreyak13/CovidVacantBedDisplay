@@ -47,7 +47,7 @@ import java.util.List;
 
             holder.name.setText(dataholder1.getName());
             holder.type.setText(dataholder1.getType());
-            holder.details.setText(dataholder1.getNbed());
+            holder.details.setText(dataholder1.getNormalBed());
             String imageuri=null;
             imageuri=dataholder1.getImage();
             Picasso.get().load(imageuri).into(holder.imageView);
@@ -67,9 +67,9 @@ import java.util.List;
                  i.putExtra("address",dataholder1.getAddress());
                  i.putExtra("contact",dataholder1.getContact());
                  i.putExtra("image",dataholder1.getImage());
-                 i.putExtra("normalBed",dataholder1.getNbed());
-                 i.putExtra("oxygenBed",dataholder1.getObed());
-                 i.putExtra("ICUBed",dataholder1.getIbed());
+                 i.putExtra("normalBed",dataholder1.getNormalBed());
+                 i.putExtra("oxygenBed",dataholder1.getOxygenBed());
+                 i.putExtra("ICUBed",dataholder1.getICUBed());
                  context.startActivity(i);
 
 

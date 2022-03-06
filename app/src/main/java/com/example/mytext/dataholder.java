@@ -1,95 +1,89 @@
 package com.example.mytext;
 
 public class dataholder  {
-    String icname;
-    String ictype;
-    String icbed;
-    String icaddress;
-    String iccontact;
-    String icimage;
-    String icNbed;
-    String icObed;
+    String name;
+    String type;
+    String bed;
+    String address;
+    String contact;
+    String image;
+    String normalBed;
+    String oxygenBed;
 
-    public dataholder(){
-
+    public dataholder() {
     }
 
-    public dataholder(String icname, String ictype, String icbed, String icaddress, String iccontact, String icimage, String icNbed, String icObed) {
-        this.icname = icname;
-        this.ictype = ictype;
-        this.icbed = icbed;
-        this.icaddress = icaddress;
-        this.iccontact = iccontact;
-        this.icimage = icimage;
-        this.icNbed = icNbed;
-        this.icObed = icObed;
+    public dataholder(String name, String type, String bed, String address, String contact, String image, String normalBed, String oxygenBed) {
+        this.name = name;
+        this.type = type;
+        this.bed = bed;
+        this.address = address;
+        this.contact = contact;
+        this.image = image;
+        this.normalBed = normalBed;
+        this.oxygenBed = oxygenBed;
+    }
+    public String getName() {
+        return name;
     }
 
-
-
-
-
-    public String getIcname() {
-        return icname;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setIcname(String icname) {
-        this.icname = icname;
+    public String getType() {
+        return type;
     }
 
-    public String getIctype() {
-        return ictype;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public void setIctype(String ictype) {
-        this.ictype = ictype;
+    public String getBed() {
+        return bed;
     }
 
-    public String getIcbed() {
-        return icbed;
+    public void setBed(String bed) {
+        this.bed = bed;
     }
 
-    public void setIcbed(String icbed) {
-        this.icbed = icbed;
+    public String getAddress() {
+        return address;
     }
 
-    public String getIcaddress() {
-        return icaddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public void setIcaddress(String icaddress) {
-        this.icaddress = icaddress;
+    public String getContact() {
+        return contact;
     }
 
-    public String getIccontact() {
-        return iccontact;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
-    public void setIccontact(String iccontact) {
-        this.iccontact = iccontact;
+    public String getImage() {
+        return image;
     }
 
-    public String getIcimage() {
-        return icimage;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public void setIcimage(String icimage) {
-        this.icimage = icimage;
+    public String getNormalBed() {
+        return normalBed;
     }
 
-    public String getIcNbed() {
-        return icNbed;
+    public void setNormalBed(String normalBed) {
+        this.normalBed = normalBed;
     }
 
-    public void setIcNbed(String icNbed) {
-        this.icNbed = icNbed;
+    public String getOxygenBed() {
+        return oxygenBed;
     }
 
-    public String getIcObed() {
-        return icObed;
-    }
-
-    public void setIcObed(String icObed) {
-        this.icObed = icObed;
+    public void setOxygenBed(String oxygenBed) {
+        this.oxygenBed = oxygenBed;
     }
 }

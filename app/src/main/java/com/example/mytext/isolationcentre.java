@@ -37,7 +37,7 @@ public class isolationcentre extends AppCompatActivity {
         dref= fbase.getReference("isolation centre");
         storage=FirebaseStorage.getInstance();
         icrecyclerView=findViewById(R.id.recy);
-        icrecyclerView.setHasFixedSize(true);
+
 
         icrecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -45,57 +45,37 @@ public class isolationcentre extends AppCompatActivity {
         isoadapter =new isolatiomadapter(isolationcentre.this,holddata2);
         icrecyclerView.setAdapter(isoadapter);
 
-        dref.addValueEventListener(new ValueEventListener() {
+
+
+
+       dref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    dataholder iholddata=snapshot.getValue(dataholder.class);
+               //dataholder iholddata=snapshot.getValue(dataholder.class);
+               // holddata2.add(iholddata);
+
+               for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+
+                    dataholder iholddata=dataSnapshot.getValue(dataholder.class);
+
                     holddata2.add(iholddata);
                 }
+
+
                 isoadapter.notifyDataSetChanged();
 
             }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
-       /* dref.addChildEventListener(new ChildEventListener() {
-
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                holddata holddataa=snapshot.getValue(holddata.class);
-                holddata2.add(holddataa);
-                isolatiomadapter.notifyDataSetChanged();
-
-
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });*/
 
 
 
-    }
+           @Override
+           public void onCancelled(@NonNull DatabaseError error) {
+
+           }
+
+
+
+
+    });}
 }

@@ -28,7 +28,7 @@ public class hospital extends AppCompatActivity {
     DatabaseReference dref;
     RecyclerView recyclerView;
     rowadapter rowadapter;
-    List<holddata> holddata1;
+    ArrayList<holddata> holddata1;
 
 
 

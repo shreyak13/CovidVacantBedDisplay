@@ -9,24 +9,24 @@ public class holddata  {
     String address;
     String contact;
     String image;
-    String Nbed;
-    String Obed;
-    String Ibed;
+    String normalBed;
+    String oxygenBed;
+    String ICUBed;
 
     public holddata() {
 
     }
 
-    public holddata(String name, String type, String bed, String address, String contact, String image,String normalbed,String obed,String ibed) {
+    public holddata(String name, String type, String bed, String address, String contact, String image,String normalBed,String oxygenBed,String ICUBed) {
         this.name = name;
         this.type = type;
         this.bed = bed;
         this.address = address;
         this.contact = contact;
         this.image = image;
-        this.Nbed=normalbed;
-        this.Obed=obed;
-        this.Ibed=ibed;
+        this.normalBed=normalBed;
+        this.oxygenBed=oxygenBed;
+        this.ICUBed=ICUBed;
 
     }
 
@@ -42,9 +42,9 @@ public class holddata  {
         return type;
     }
 
-  //  public void setType(String type) {
-   //     this.type = type;
-   // }
+    public void setType(String type) {
+      this.type = type;
+    }
 
     public String getBed() {
         return bed;
@@ -78,27 +78,27 @@ public class holddata  {
         this.image = image;
     }
 
-    public String getNbed() {
-        return Nbed;
+    public String getNormalBed() {
+        return normalBed;
     }
 
-    public void setNbed(String normalbed) {
-        this.Nbed = normalbed;
+    public void setNormalBed(String normalBed) {
+        this.normalBed = normalBed;
     }
 
-    public String getObed() {
-        return Obed;
+    public String getOxygenBed() {
+        return oxygenBed;
     }
 
-    public void setObed(String obed) {
-        this.Obed = obed;
+    public void setOxygenBed(String oxygenBed) {
+        this.oxygenBed = oxygenBed;
     }
 
-    public String getIbed() {
-        return Ibed;
+    public String getICUBed() {
+        return ICUBed;
     }
 
-    public void setIbed(String ibed) {
-        this.Ibed = ibed;
+    public void setICUBed(String ICUBed) {
+        this.ICUBed = ICUBed;
     }
 }

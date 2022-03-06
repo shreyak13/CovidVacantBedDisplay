@@ -37,23 +37,23 @@ public class isolatiomadapter extends RecyclerView.Adapter<isolatiomadapter.View
         return new ViewHolder(v);
 
     }
-
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull isolatiomadapter.ViewHolder holder, int position) {
         dataholder dataholder1=isolationList.get(position);
 
-        holder.name.setText(dataholder1.getIcname());
-        holder.type.setText(dataholder1.getIctype());
-        holder.details.setText(dataholder1.getIcNbed());
+        holder.icname.setText(dataholder1.getName());
+        holder.ictype.setText(dataholder1.getType());
+        holder.icdetails.setText(dataholder1.getNormalBed());
         String imageuri=null;
-        imageuri=dataholder1.getIcimage();
-        Picasso.get().load(imageuri).into(holder.imageView);
+        imageuri=dataholder1.getImage();
+        Picasso.get().load(imageuri).into(holder.icimageView);
 
 
 
 
 
-      /*  holder.imageView.setOnClickListener(new View.OnClickListener() {
+        holder.icimageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int a=holder.getAdapterPosition();
@@ -64,15 +64,15 @@ public class isolatiomadapter extends RecyclerView.Adapter<isolatiomadapter.View
                 i.putExtra("address",dataholder1.getAddress());
                 i.putExtra("contact",dataholder1.getContact());
                 i.putExtra("image",dataholder1.getImage());
-                i.putExtra("normalBed",dataholder1.getNbed());
-                i.putExtra("oxygenBed",dataholder1.getObed());
+                i.putExtra("normalBed",dataholder1.getNormalBed());
+                i.putExtra("oxygenBed",dataholder1.getOxygenBed());
 
                 context.startActivity(i);
 
 
             }
         });
-*/
+
 
     }
 
@@ -82,14 +82,14 @@ public class isolatiomadapter extends RecyclerView.Adapter<isolatiomadapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        TextView name,details,type;
+        ImageView icimageView;
+        TextView icname,icdetails,ictype;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView=itemView.findViewById(R.id.imageView);
-            name=itemView.findViewById(R.id.tvname);
-            type=itemView.findViewById(R.id.tvtype);
-            details=itemView.findViewById(R.id.tvdetails);
+            icimageView=itemView.findViewById(R.id.imageView);
+            icname=itemView.findViewById(R.id.tvname);
+            ictype=itemView.findViewById(R.id.tvtype);
+           icdetails=itemView.findViewById(R.id.tvdetails);
         }
     }
 }

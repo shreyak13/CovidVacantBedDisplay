@@ -5,9 +5,103 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".updatebed"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Bed Details"
+        android:gravity="center"
+        android:layout_marginTop="50sp"
+        android:textSize="20sp"/>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Type"
+                android:textSize="20sp"
+                android:layout_weight="4"
+                android:padding="10dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="4"
+                android:padding="10dp"
+                android:text="@string/col3"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Normal Bed"
+                android:textSize="20sp"
+                android:layout_weight="4"
+                android:padding="10dp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/upNoBed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                >
+            </EditText>
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Oxygen Bed"
+                android:textSize="20sp"
+                android:layout_weight="4"
+                android:padding="10dp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/upOxBed"
+                android:layout_width="204dp"
+                android:layout_height="match_parent"
+                >
+            </EditText>
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="ICU Bed"
+                android:textSize="20sp"
+                android:layout_weight="4"
+                android:padding="10dp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/upIcuBed"
+                android:layout_width="204dp"
+                android:layout_height="match_parent"
+                >
+            </EditText>
+        </TableRow>
 
 
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/updateBedDetails"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="update"
+        />
 
 
 </LinearLayout>

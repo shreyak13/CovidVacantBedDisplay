@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class user extends AppCompatActivity {
-Button button,button1,button2,button3;
+Button button,button1,button2,button3,button4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +19,7 @@ Button button,button1,button2,button3;
         button1=findViewById(R.id.hospital);
         button2=findViewById(R.id.ioslation);
         button3=findViewById(R.id.ambulance);
+        button4=findViewById(R.id.userquery);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +53,15 @@ Button button,button1,button2,button3;
 
             }
         });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(),faq.class));
+
+            }
+        });
+
 
 
 

@@ -76,15 +76,7 @@
             android:layout_marginStart="50dp"
             android:text="create new admin" />
 
-        <Button
-            android:id="@+id/adminquery"
-            android:layout_width="110dp"
-            android:layout_height="130dp"
 
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            android:text="Query" />
 
 
     </LinearLayout>

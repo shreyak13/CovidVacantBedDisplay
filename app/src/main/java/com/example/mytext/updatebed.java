@@ -44,6 +44,13 @@ public class updatebed extends AppCompatActivity {
                 String upoxygenbed=upOxygenBed.getText().toString();
                 String upicubed=upIcuBed.getText().toString();
 
+                if(!(upnormalbed.isEmpty()&&upoxygenbed.isEmpty()&&upicubed.isEmpty())){
+
+
+                }
+
+
+
             }
         });
 

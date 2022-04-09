@@ -26,6 +26,7 @@ import java.util.List;
         List<holddata> hospitalList;
 
 
+
         public rowadapter(Context context, List<holddata> hospitalList) {
             this.context = context;
             this.hospitalList = hospitalList;

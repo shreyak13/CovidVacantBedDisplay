@@ -11,9 +11,12 @@
 
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/aImage"
+            android:layout_gravity="center"
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <TextView

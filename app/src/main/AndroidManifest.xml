@@ -35,7 +35,9 @@
             android:exported="false" />
         <activity
             android:name=".ambulance"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".isolationcentre"
             android:exported="false" />

@@ -32,11 +32,6 @@ public class updatebed extends AppCompatActivity {
         fbase = FirebaseDatabase.getInstance();
         dref = fbase.getReference().child("Update Bed");
 
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
         updateBed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,15 +39,30 @@ public class updatebed extends AppCompatActivity {
                 String upoxygenbed=upOxygenBed.getText().toString();
                 String upicubed=upIcuBed.getText().toString();
 
-                if(!(upnormalbed.isEmpty()&&upoxygenbed.isEmpty()&&upicubed.isEmpty())){
+                bedupholder bedholder=new bedupholder(upnormalbed,upoxygenbed,upicubed);
+
+                dref.push().setValue(bedholder);
 
 
-                }
+                // DatabaseReference newpost=dref.push();
 
+                //newpost.child("upnormalbed").setValue(upnormalbed);
+                //newpost.child("upoxygenbed").setValue(upoxygenbed);
+                //newpost.child("upicubed").setValue(upicubed);
+
+                upNormalBed.setText("");
+                upOxygenBed.setText("");
+                upIcuBed.setText("");
 
 
             }
         });
 
 
-}}
+    }
+
+    }
+
+
+
+

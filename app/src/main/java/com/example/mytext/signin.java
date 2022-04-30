@@ -3,6 +3,7 @@ package com.example.mytext;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,7 +29,7 @@ public class signin extends AppCompatActivity {
     Button signin;
     FirebaseAuth fauth;
     FirebaseFirestore fstore;
-    TextView textView;
+    TextView textView,abc;
     private EditText editText;
 
 
@@ -38,6 +39,8 @@ public class signin extends AppCompatActivity {
         setContentView(R.layout.activity_signin);
 
         signin=findViewById(R.id.signin);
+
+
 
         fauth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
@@ -59,6 +62,7 @@ public class signin extends AppCompatActivity {
                   public void onSuccess(AuthResult authResult) {
                       Toast.makeText(signin.this, "success", Toast.LENGTH_SHORT).show();
                       checkUserLevel(authResult.getUser().getUid());
+
                   }
               }).addOnFailureListener(new OnFailureListener() {
                   @Override
@@ -80,13 +84,19 @@ public class signin extends AppCompatActivity {
 
     private void checkUserLevel(String uid) {
         DocumentReference df=fstore.collection("user").document(uid);
+        Intent i = new Intent(this,updatebed.class);
         df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Log.d("TAG","Onsuccess"+documentSnapshot.getData());
 
                 if(null != documentSnapshot.getString("isadmin")){
+                    String loginEmail=documentSnapshot.getString("email");
 
+                    Intent i = new Intent(getApplicationContext(),updatebed.class);
+                    i.putExtra("email",loginEmail);
+                    startActivity(i);
+                   // Toast.makeText(getApplicationContext(),loginEmail,Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(),admin.class));
                     finish();
                 }

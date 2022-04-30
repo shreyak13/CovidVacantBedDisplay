@@ -123,9 +123,9 @@
                 />
 
             <TextView
+                android:id="@+id/vNormalBed"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
                 android:padding="10dp"
                 android:textSize="14sp"
                 android:layout_weight="4"
@@ -155,7 +155,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
+                android:id="@+id/vOxygenbed"
                 android:padding="10dp"
                 android:textSize="14sp"
                 android:layout_weight="4"
@@ -185,7 +185,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
+                android:id="@+id/vIcubed"
                 android:padding="10dp"
                 android:textSize="14sp"
                 android:layout_weight="4"

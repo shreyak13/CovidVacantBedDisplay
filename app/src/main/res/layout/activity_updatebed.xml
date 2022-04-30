@@ -15,6 +15,18 @@
         android:gravity="center"
         android:layout_marginTop="50sp"
         android:textSize="20sp"/>
+
+    <TextView
+
+        android:id="@+id/centerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+        android:textSize="20sp"/>
+
+
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -95,13 +107,20 @@
     </TableLayout>
 
     <Button
+        android:id="@+id/addBedDetails"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Add bed details"
+        />
+    <Button
         android:id="@+id/updateBedDetails"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="update"
+        android:text="update bed details"
         />
-
 
 </LinearLayout>

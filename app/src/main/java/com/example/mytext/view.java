@@ -6,17 +6,24 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class view extends AppCompatActivity {
     private ImageView dimageView;
-    TextView textView,textView1,textView2,textView3,textView4,normalbed,oxygenbed,icubed,tBed;
+    TextView textView,textView1,textView2,textView3,textView4,normalbed,oxygenbed,icubed,tBed,vnBed,voBed,viBed;
     View v;
+
+    FirebaseDatabase fbase=FirebaseDatabase.getInstance();
+    DatabaseReference dref=fbase.getReference().child("Update Bed").child("-N-ES-1JCGh044Xar-xM");
 
 
 
@@ -38,6 +45,9 @@ public class view extends AppCompatActivity {
         oxygenbed=findViewById(R.id.oxygenBed);
         icubed=findViewById(R.id.ICUBed);
         tBed=findViewById(R.id.totalBed);
+        vnBed=findViewById(R.id.vNormalBed);
+        voBed=findViewById(R.id.vOxygenbed);
+        viBed=findViewById(R.id.vIcubed);
 
         String name = extras.getString("Name");
         String bed = extras.getString("bed");
@@ -49,6 +59,7 @@ public class view extends AppCompatActivity {
         String Obed=extras.getString("oxygenBed");
         String IBed=extras.getString("ICUBed");
 
+
         textView.setText(name);
         textView1.setText(type);
         textView2.setText(bed);
@@ -57,6 +68,8 @@ public class view extends AppCompatActivity {
         normalbed.setText(Nbed);
         oxygenbed.setText(Obed);
         icubed.setText(IBed);
+
+
         Picasso.get().load(image).into(dimageView);
       /*  int number1=Integer.parseInt(nBed);
         int number2=Integer.parseInt(oBed);
@@ -64,8 +77,27 @@ public class view extends AppCompatActivity {
         int sum=number1+number2+number3;
         tBed.setText(String.valueOf(sum));*/
 
+        dref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String vnbed=snapshot.child("upnormalbed").getValue().toString();
+                String vobed=snapshot.child("upoxygenbed").getValue().toString();
+                String vibed=snapshot.child("upicubed").getValue().toString();
 
+                vnBed.setText(vnbed);
+                voBed.setText(vobed);
+                viBed.setText(vibed);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
+
 
 
 

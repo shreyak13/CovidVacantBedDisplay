@@ -103,7 +103,8 @@ public class addisolation extends AppCompatActivity {
                                     inewpost.child("address").setValue(address);
                                     inewpost.child("contact").setValue(cont);
                                     inewpost.child("image").setValue(task.getResult().toString());
-
+                                    String key =  dref.push().getKey();
+                                    inewpost.child("key").setValue(key);
 
                                 }
                             });

@@ -29,6 +29,9 @@ public class hospital extends AppCompatActivity {
     RecyclerView recyclerView;
     rowadapter rowadapter;
     ArrayList<holddata> holddata1;
+    DatabaseReference dataref;
+    ArrayList<bedupholder> bedupholders;
+
 
 
 
@@ -49,6 +52,8 @@ public class hospital extends AppCompatActivity {
         holddata1=new ArrayList<holddata>();
         rowadapter =new rowadapter(hospital.this,holddata1);
         recyclerView.setAdapter(rowadapter);
+        dataref=fbase.getReference().child(" ");
+        bedupholders=new ArrayList<bedupholder>();
 
 
 
@@ -83,7 +88,38 @@ public class hospital extends AppCompatActivity {
             }
         });
 
+        dataref.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                bedupholder bedupholderr=snapshot.getValue(bedupholder.class);
+                bedupholders.add(bedupholderr);
+
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
     }
+
 }
 

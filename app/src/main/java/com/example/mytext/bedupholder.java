@@ -1,14 +1,27 @@
 package com.example.mytext;
 
 public class bedupholder {
+
      String upnormalbed;
      String upoxygenbed;
-     String upicubed;
+     String upicubed,stre;
+
 public bedupholder(){}
-    public bedupholder(String upnormalbed, String upoxygenbed, String upicubed) {
+
+
+    public bedupholder(String stre,String upnormalbed, String upoxygenbed, String upicubed) {
         this.upnormalbed = upnormalbed;
         this.upoxygenbed = upoxygenbed;
         this.upicubed = upicubed;
+        this.stre=stre;
+    }
+
+    public String getStre() {
+        return stre;
+    }
+
+    public void setStre(String stre) {
+        this.stre = stre;
     }
 
     public String getUpnormalbed() {

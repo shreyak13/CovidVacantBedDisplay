@@ -24,6 +24,7 @@ import java.util.List;
     public class rowadapter extends RecyclerView.Adapter<rowadapter.ViewHolder> {
         Context context;
         List<holddata> hospitalList;
+       
 
 
 
@@ -71,6 +72,8 @@ import java.util.List;
                  i.putExtra("normalBed",dataholder1.getNormalBed());
                  i.putExtra("oxygenBed",dataholder1.getOxygenBed());
                  i.putExtra("ICUBed",dataholder1.getICUBed());
+
+
                  context.startActivity(i);
 
 

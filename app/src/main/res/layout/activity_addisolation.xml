@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_width="175dp"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 /></LinearLayout>
         <LinearLayout
-            android:layout_width="175dp"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -87,7 +87,29 @@
                 android:id="@+id/ioxygenbed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+
+
+
+
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ICU Bed"
+                android:textStyle="bold|italic"
+                android:gravity="center"/>
+            <EditText
+                android:id="@+id/iicubed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <TextView

@@ -8,15 +8,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,6 +28,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -34,11 +38,14 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class updatebed extends AppCompatActivity {
     EditText upNormalBed;
     EditText upOxygenBed;
     EditText upIcuBed;
-    TextView namee,emaile;
+    TextView namee,emaile,tpp;
     Button addBed,updateBed;
     FirebaseStorage storage;
     FirebaseAuth mAuth;
@@ -67,11 +74,9 @@ public class updatebed extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        //String email=getIntent().getStringExtra("email");
-         // namee.setText(email);
-       Bundle extras = getIntent().getExtras();
-      String stre = extras.getString("email");
 
+        SharedPreferences shared=getSharedPreferences("myKey",MODE_PRIVATE);
+        String stre=shared.getString("email","");
 
         addBed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,8 +84,9 @@ public class updatebed extends AppCompatActivity {
                 String upnormalbed=upNormalBed.getText().toString();
                 String upoxygenbed=upOxygenBed.getText().toString();
                 String upicubed=upIcuBed.getText().toString();
+                String key =  dref.push().getKey();
 
-                bedupholder bedholder=new bedupholder(stre,upnormalbed,upoxygenbed,upicubed);
+                bedupholder bedholder=new bedupholder(key,stre,upnormalbed,upoxygenbed,upicubed);
 
                 dref.push().setValue(bedholder);
 
@@ -88,7 +94,9 @@ public class updatebed extends AppCompatActivity {
                 upNormalBed.setText("");
                 upOxygenBed.setText("");
                 upIcuBed.setText("");
-                addBed.setVisibility(View.GONE);
+
+
+
 
             }
         });
@@ -102,10 +110,16 @@ public class updatebed extends AppCompatActivity {
                     String upnbed=datas.child("upnormalbed").getValue().toString();
                     String upobed=datas.child("upoxygenbed").getValue().toString();
                     String upibed=datas.child("upicubed").getValue().toString();
-
+                    String key=datas.child("key").getValue().toString();
                     upNormalBed.setText(upnbed);
                     upOxygenBed.setText(upobed);
                     upIcuBed.setText(upibed);
+
+                    if(upNormalBed!=null){
+                        addBed.setVisibility(View.GONE);
+                    }
+                   // String key =  dref.push().getKey();
+                   // datas.child("key").setValue(key);
 
                 }
             }
@@ -114,9 +128,60 @@ public class updatebed extends AppCompatActivity {
             }
         });
 
+        updateBed.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String upnormalbed=upNormalBed.getText().toString();
+            String upoxygenbed=upOxygenBed.getText().toString();
+            String upicubed=upIcuBed.getText().toString();
+
+            HashMap<String,Object> upbed=new HashMap<>();
+
+            upbed.put("upnormalbed",upnormalbed);
+            upbed.put("upoxygenbed",upoxygenbed);
+            upbed.put("upicubed",upicubed);
+            upNormalBed.setText(upnormalbed);
+            upOxygenBed.setText(upoxygenbed);
+            upIcuBed.setText(upicubed);
+
+            DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference("Update Bed");
+            dbRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    for (DataSnapshot datas : snapshot.getChildren()) {
+                        String key=reference.getKey();
+                        if(!(datas.child("stre").getValue()==stre)){
+                        datas.getRef().updateChildren(upbed).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(getApplicationContext(), "Bed Details Updated", Toast.LENGTH_SHORT).show();
+                            }
+                        });}
+
+
+                    }
+                      }
+
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+            SharedPreferences share=getSharedPreferences("bedKey",MODE_PRIVATE);
+            SharedPreferences.Editor editor=share.edit();
+            editor.putString("unb",upnormalbed);
+            editor.putString("uob",upoxygenbed);
+            editor.putString("uib",upicubed);
+            editor.apply();
+            }
+            });
 
 
     }
+
+
 
     }
 

@@ -1,8 +1,11 @@
 package com.example.mytext;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,11 +22,12 @@ import com.squareup.picasso.Picasso;
 
 public class view extends AppCompatActivity {
     private ImageView dimageView;
-    TextView textView,textView1,textView2,textView3,textView4,normalbed,oxygenbed,icubed,tBed,vnBed,voBed,viBed;
-    View v;
+    TextView textView,textView1,textView2,textView3,textView4,normalbed,oxygenbed,icubed,tBed,vnBed,voBed,viBed,vtBed;
 
+    View v;
+    Button BookNow;
     FirebaseDatabase fbase=FirebaseDatabase.getInstance();
-    DatabaseReference dref=fbase.getReference().child("Update Bed").child("-N-ES-1JCGh044Xar-xM");
+    DatabaseReference dref=fbase.getReference().child("Update Bed");
 
 
 
@@ -32,6 +36,9 @@ public class view extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
+
+        SharedPreferences shared=getSharedPreferences("myKey",MODE_PRIVATE);
+        String stre=shared.getString("email","");
 
         Bundle extras = getIntent().getExtras();
 
@@ -48,6 +55,8 @@ public class view extends AppCompatActivity {
         vnBed=findViewById(R.id.vNormalBed);
         voBed=findViewById(R.id.vOxygenbed);
         viBed=findViewById(R.id.vIcubed);
+        BookNow=findViewById(R.id.bookNow);
+        vtBed=findViewById(R.id.vTBed);
 
         String name = extras.getString("Name");
         String bed = extras.getString("bed");
@@ -68,34 +77,51 @@ public class view extends AppCompatActivity {
         normalbed.setText(Nbed);
         oxygenbed.setText(Obed);
         icubed.setText(IBed);
+        tBed.setText(bed);
 
 
         Picasso.get().load(image).into(dimageView);
-      /*  int number1=Integer.parseInt(nBed);
-        int number2=Integer.parseInt(oBed);
-        int number3=Integer.parseInt(iBed);
-        int sum=number1+number2+number3;
-        tBed.setText(String.valueOf(sum));*/
 
-        dref.addValueEventListener(new ValueEventListener() {
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Update Bed");
+
+        reference.orderByChild("stre").equalTo(stre).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String vnbed=snapshot.child("upnormalbed").getValue().toString();
-                String vobed=snapshot.child("upoxygenbed").getValue().toString();
-                String vibed=snapshot.child("upicubed").getValue().toString();
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot datas: dataSnapshot.getChildren()){
+                    String upnbed=datas.child("upnormalbed").getValue().toString();
+                    String upobed=datas.child("upoxygenbed").getValue().toString();
+                    String upibed=datas.child("upicubed").getValue().toString();
+                    String key=datas.child("key").getValue().toString();
+                    vnBed.setText(upnbed);
+                    voBed.setText(upobed);
+                    viBed.setText(upibed);
 
-                vnBed.setText(vnbed);
-                voBed.setText(vobed);
-                viBed.setText(vibed);
 
+                    // String key =  dref.push().getKey();
+                    // datas.child("key").setValue(key);
 
+                    int vbed=Integer.parseInt(upibed)+Integer.parseInt(upnbed)+Integer.parseInt(upobed);
+                    vtBed.setText(vbed);
+
+                }
             }
-
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onCancelled(DatabaseError databaseError) {
             }
         });
+
+        BookNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),bookNOW.class));
+            }
+        });
+
+
+
+
+
     }
 
 

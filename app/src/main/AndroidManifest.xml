@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mytext">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mytext">
         <activity
+            android:name=".bookNOW"
+            android:exported="false" />
+        <activity
             android:name=".faq"
-            android:exported="true" >
+            android:exported="true">
 
         </activity>
         <activity
@@ -26,27 +30,19 @@
             android:exported="false" />
         <activity
             android:name=".updatebed"
-            android:exported="true" >
-
-
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".addhospital"
             android:exported="false" />
         <activity
             android:name=".ambulance"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".isolationcentre"
             android:exported="false" />
         <activity
             android:name=".hospital"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".createAdmin"
             android:exported="false" />
@@ -59,12 +55,13 @@
         <activity
             android:name=".signin"
             android:exported="true">
+
+            //main page
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            //main page
         </activity>
         <activity
             android:name=".MainActivity"

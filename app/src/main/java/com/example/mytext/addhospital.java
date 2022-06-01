@@ -113,8 +113,10 @@ public class addhospital extends AppCompatActivity {
                                     newpost.child("oxygenBed").setValue(Obed);
                                     newpost.child("ICUBed").setValue(Ibed);
                                     newpost.child("image").setValue(task.getResult().toString());
-                                  //  String key =  dref.push().getKey();
-                                  //  newpost.child("key").setValue(key);
+                                   String key =  dref.push().getKey();
+
+
+                                newpost.child("key").setValue(key);
                                     mAuth = FirebaseAuth.getInstance();
                                     currentUser = mAuth.getCurrentUser();
 

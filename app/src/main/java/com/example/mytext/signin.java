@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -84,7 +85,7 @@ public class signin extends AppCompatActivity {
 
     private void checkUserLevel(String uid) {
         DocumentReference df=fstore.collection("user").document(uid);
-        Intent i = new Intent(this,updatebed.class);
+
         df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -93,9 +94,13 @@ public class signin extends AppCompatActivity {
                 if(null != documentSnapshot.getString("isadmin")){
                     String loginEmail=documentSnapshot.getString("email");
 
-                    Intent i = new Intent(getApplicationContext(),updatebed.class);
-                    i.putExtra("email",loginEmail);
-                    startActivity(i);
+                   // Intent i = new Intent(getApplicationContext(),updatebed.class);
+                    //i.putExtra("email",loginEmail);
+                    //startActivity(i);
+                    SharedPreferences shared=getSharedPreferences("myKey",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=shared.edit();
+                    editor.putString("email",loginEmail);
+                    editor.apply();
                    // Toast.makeText(getApplicationContext(),loginEmail,Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(),admin.class));
                     finish();
@@ -120,12 +125,12 @@ public class signin extends AppCompatActivity {
         return valid;
     }
 
-    @Override
+  /*  @Override
     protected void onStart() {
         super.onStart();
         if(FirebaseAuth.getInstance().getCurrentUser()!=null){
             startActivity(new Intent(getApplicationContext(),user.class));
          finish();
         }
-    }
+    }*/
 }

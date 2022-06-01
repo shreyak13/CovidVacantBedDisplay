@@ -1,12 +1,19 @@
 package com.example.mytext;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.util.Log;
+import android.view.View;
 import android.widget.Adapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,6 +32,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class faq extends AppCompatActivity {
+    TextView answerl;
+    LinearLayout linLayout;
+    Button but;
+    CardView cardView;
+    TextView text;
+
+
     RecyclerView recyclerView;
     ArrayList<String> question=new ArrayList<>();
     ArrayList<String> answer=new ArrayList<>();
@@ -32,17 +46,36 @@ public class faq extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faq);
+       setContentView(R.layout.activity_faq);
     recyclerView=findViewById(R.id.faqRecycler);
-
+     answerl=findViewById(R.id.faqAnswer);
+     linLayout=findViewById(R.id.ansLayout);
+     but=(Button)findViewById(R.id.expandAns);
+     cardView=findViewById(R.id.card);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
+        text=findViewById(R.id.faqQuestion);
+       /* but.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(linLayout.getVisibility() == View.GONE){
+                    TransitionManager.beginDelayedTransition(cardView,new AutoTransition());
+                    linLayout.setVisibility(View.VISIBLE);
+
+                }
+                else{
+                    TransitionManager.beginDelayedTransition(cardView,new AutoTransition());
+                    linLayout.setVisibility(View.GONE);
+                }
+            }
+        });*/
+
 
         try {
             JSONObject jsonObject=new JSONObject(JsonDataFromAsset());
             JSONArray jsonArray=jsonObject.getJSONArray("faq");
 
-            for(int i=0;i<10;i++){
+            for(int i=0;i<15;i++){
                 JSONObject userdata=jsonArray.getJSONObject(i);
                 question.add(userdata.getString("Question"));
                 answer.add(userdata.getString("Answer"));
@@ -54,6 +87,7 @@ public class faq extends AppCompatActivity {
 
         faqAdapter faqAdapter=new faqAdapter(question,answer,faq.this);
         recyclerView.setAdapter(faqAdapter);
+
 
 
     }
@@ -75,6 +109,17 @@ public class faq extends AppCompatActivity {
         }
         return json;
     }
+   /* public void expand(View v){
+        if(linLayout.getVisibility() == View.GONE){
+            TransitionManager.beginDelayedTransition(cardView,new AutoTransition());
+            linLayout.setVisibility(View.VISIBLE);
 
+        }
+        else{
+            TransitionManager.beginDelayedTransition(cardView,new AutoTransition());
+            linLayout.setVisibility(View.GONE);
+        }
 
-}
+    }*/
+    }
+

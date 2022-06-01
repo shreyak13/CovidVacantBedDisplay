@@ -60,7 +60,8 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:6.4.0'
     implementation 'com.google.firebase:firebase-core:17.2.2' // adding firebase core dependency
     implementation 'com.google.android.material:material:1.2.0-alpha02'  //material design for RecycleView
-
+    implementation 'com.sun.mail:android-mail:1.6.0'
+    implementation 'com.sun.mail:android-activation:1.6.0'
 
 
 }

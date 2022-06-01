@@ -4,16 +4,25 @@ public class bedupholder {
 
      String upnormalbed;
      String upoxygenbed;
-     String upicubed,stre;
+     String upicubed,stre,key;
 
 public bedupholder(){}
 
 
-    public bedupholder(String stre,String upnormalbed, String upoxygenbed, String upicubed) {
+    public bedupholder(String key,String stre,String upnormalbed, String upoxygenbed, String upicubed) {
         this.upnormalbed = upnormalbed;
         this.upoxygenbed = upoxygenbed;
         this.upicubed = upicubed;
         this.stre=stre;
+        this.key=key;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getStre() {

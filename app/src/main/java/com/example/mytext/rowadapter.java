@@ -92,13 +92,14 @@ import java.util.List;
 
       public class ViewHolder extends RecyclerView.ViewHolder {
             ImageView imageView;
-            TextView name,details,type;
+            TextView name,details,type,address;
             public ViewHolder(View v) {
                 super(v);
                 imageView=v.findViewById(R.id.imageView);
                 name=v.findViewById(R.id.tvname);
                 type=v.findViewById(R.id.tvtype);
                 details=v.findViewById(R.id.tvdetails);
+                address=v.findViewById(R.id.tvAddress);
             }
         }
 

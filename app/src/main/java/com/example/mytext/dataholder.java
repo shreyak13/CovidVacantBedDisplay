@@ -9,11 +9,12 @@ public class dataholder  {
     String image;
     String normalBed;
     String oxygenBed;
+    String ICUBed;
 
     public dataholder() {
     }
 
-    public dataholder(String name, String type, String bed, String address, String contact, String image, String normalBed, String oxygenBed) {
+    public dataholder(String name, String type, String bed, String address, String contact, String image, String normalBed, String oxygenBed,String ICUBed) {
         this.name = name;
         this.type = type;
         this.bed = bed;
@@ -22,6 +23,7 @@ public class dataholder  {
         this.image = image;
         this.normalBed = normalBed;
         this.oxygenBed = oxygenBed;
+        this.ICUBed=ICUBed;
     }
     public String getName() {
         return name;
@@ -85,5 +87,13 @@ public class dataholder  {
 
     public void setOxygenBed(String oxygenBed) {
         this.oxygenBed = oxygenBed;
+    }
+
+    public String getICUBed() {
+        return ICUBed;
+    }
+
+    public void setICUBed(String ICUBed) {
+        this.ICUBed = ICUBed;
     }
 }

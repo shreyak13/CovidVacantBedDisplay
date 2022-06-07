@@ -50,6 +50,7 @@ import java.util.List;
             holder.name.setText(dataholder1.getName());
             holder.type.setText(dataholder1.getType());
             holder.details.setText(dataholder1.getBed());
+            holder.address.setText(dataholder1.getAddress());
             String imageuri=null;
             imageuri=dataholder1.getImage();
             Picasso.get().load(imageuri).into(holder.imageView);

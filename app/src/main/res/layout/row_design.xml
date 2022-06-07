@@ -41,6 +41,7 @@
         android:layout_marginEnd="112dp"
         android:text="name"
         android:textSize="20sp" />
+
     <TextView
         android:id="@+id/tvAddress"
         android:layout_width="250dp"
@@ -48,8 +49,8 @@
 
         android:layout_marginTop="5dp"
         android:layout_marginEnd="112dp"
-        android:text="name"
-        />
+        android:text="address" />
+
     <TextView
         android:id="@+id/tvtype"
         android:layout_width="250dp"

@@ -1,12 +1,16 @@
 package com.example.mytext;
 
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -14,6 +18,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.squareup.picasso.Picasso;
 
 public class ambAdapter extends FirebaseRecyclerAdapter<ambholder,ambAdapter.myviewholder> {
+
     public ambAdapter(@NonNull FirebaseRecyclerOptions<ambholder> options) {
         super(options);
     }
@@ -28,6 +33,21 @@ public class ambAdapter extends FirebaseRecyclerAdapter<ambholder,ambAdapter.myv
         String imageuri=null;
         imageuri= model.getImage();
         Picasso.get().load(imageuri).into(holder.img);
+        holder.txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(holder.linearLayout.getVisibility()==View.GONE){
+                    TransitionManager.beginDelayedTransition(holder.cardView,new AutoTransition());
+                    holder.linearLayout.setVisibility(View.VISIBLE);
+                }
+                else{
+                    TransitionManager.beginDelayedTransition(holder.cardView,new AutoTransition());
+                    holder.linearLayout.setVisibility(View.GONE);
+
+                }
+
+            }
+        });
 
 
     }
@@ -42,6 +62,9 @@ public class ambAdapter extends FirebaseRecyclerAdapter<ambholder,ambAdapter.myv
     class myviewholder extends RecyclerView.ViewHolder{
     ImageView img;
     TextView name,contact,type,address;
+        CardView cardView;
+        LinearLayout linearLayout;
+        TextView txt;
     public myviewholder(@NonNull View itemView) {
         super(itemView);
         img=itemView.findViewById(R.id.aImage);
@@ -49,6 +72,9 @@ public class ambAdapter extends FirebaseRecyclerAdapter<ambholder,ambAdapter.myv
         contact=itemView.findViewById(R.id.aContact);
         type=itemView.findViewById(R.id.aType);
         address=itemView.findViewById(R.id.aAddress);
+        cardView=itemView.findViewById(R.id.cardView);
+        linearLayout=itemView.findViewById(R.id.showLayout);
+        txt=itemView.findViewById(R.id.show);
     }
 }
 }

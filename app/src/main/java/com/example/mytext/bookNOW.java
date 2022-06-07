@@ -1,7 +1,10 @@
 package com.example.mytext;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -40,7 +43,7 @@ public class bookNOW extends AppCompatActivity {
         bookNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String username="shreyaykhedekar13@dbatu.ac.in";
+             /*   final String username="shreyaykhedekar13@dbatu.ac.in";
                 final String password="11";
                 String tomail="shreyaykhedekar13@gmail.com";
                 String messageTo=name.getText().toString();
@@ -94,7 +97,24 @@ public class bookNOW extends AppCompatActivity {
                 }
 
 
-
+*/          /*    String username="shreyaykhedekar13@dbatu.ac.in";
+                Intent intent=new Intent(Intent.ACTION_VIEW
+                , Uri.parse("mailto:"+username));
+                String str="Booking For Bed";
+                intent.putExtra(Intent.EXTRA_SUBJECT,str);
+                intent.putExtra(Intent.EXTRA_TEXT,"Name:-  "+name.getText().toString()+"\n"+"Address:-  "+address.getText().toString()+"\n"+"Contact:-  "+contact.getText().toString()+"\n"+"Patient Condition:-  "+condition.getText().toString()+"\n"+"Do You Need Ambulance?:-  "+ambulance.getText().toString());
+                startActivity(intent);*/
+                String username="shreyaykhedekar13@dbatu.ac.in";
+                //Intent emailIntent = new Intent(Intent.ACTION_SEND);
+               // emailIntent.setData(Uri.parse("mailto:"+username));
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setData(Uri.parse("mailto:"));
+                emailIntent.setType("text/plain");
+                emailIntent.putExtra(Intent.EXTRA_EMAIL,
+                        new String[] { username });
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT,"Booking For Bed");
+                emailIntent.putExtra(Intent.EXTRA_TEXT,"Name:-  "+name.getText().toString()+"\n"+"Address:-  "+address.getText().toString()+"\n"+"Contact:-  "+contact.getText().toString()+"\n"+"Patient Condition:-  "+condition.getText().toString()+"\n"+"Do You Need Ambulance?:-  "+ambulance.getText().toString());
+                startActivity(emailIntent);
             }
         });
 

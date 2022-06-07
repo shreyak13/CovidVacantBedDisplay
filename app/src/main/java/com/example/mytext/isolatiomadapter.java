@@ -45,6 +45,7 @@ public class isolatiomadapter extends RecyclerView.Adapter<isolatiomadapter.View
         holder.icname.setText(dataholder1.getName());
         holder.ictype.setText(dataholder1.getType());
         holder.icdetails.setText(dataholder1.getNormalBed());
+        holder.address.setText(dataholder1.getAddress());
         String imageuri=null;
         imageuri=dataholder1.getImage();
         Picasso.get().load(imageuri).into(holder.icimageView);
@@ -66,6 +67,7 @@ public class isolatiomadapter extends RecyclerView.Adapter<isolatiomadapter.View
                 i.putExtra("image",dataholder1.getImage());
                 i.putExtra("normalBed",dataholder1.getNormalBed());
                 i.putExtra("oxygenBed",dataholder1.getOxygenBed());
+                i.putExtra("ICUBed",dataholder1.getICUBed());
 
                 context.startActivity(i);
 
@@ -83,13 +85,14 @@ public class isolatiomadapter extends RecyclerView.Adapter<isolatiomadapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView icimageView;
-        TextView icname,icdetails,ictype;
+        TextView icname,icdetails,ictype,address;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             icimageView=itemView.findViewById(R.id.imageView);
             icname=itemView.findViewById(R.id.tvname);
             ictype=itemView.findViewById(R.id.tvtype);
            icdetails=itemView.findViewById(R.id.tvdetails);
+            address=itemView.findViewById(R.id.tvAddress);
         }
     }
 }

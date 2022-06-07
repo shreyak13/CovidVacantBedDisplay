@@ -49,13 +49,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textSize="15sp"
-        android:text="Normal/Serious/Very Serious"/>
+        android:text="Choose(Normal/Serious/Very Serious)"/>
     <EditText
         android:id="@+id/bAmbulance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Do You Need Ambulance?"/>
+        android:hint="Do You Need Ambulance?  (Yes/No)"/>
 
     <Button
         android:id="@+id/bookNOW"

@@ -22,8 +22,8 @@ import com.squareup.picasso.Picasso;
 
 public class view extends AppCompatActivity {
     private ImageView dimageView;
-    TextView textView,textView1,textView2,textView3,textView4,normalbed,oxygenbed,icubed,tBed,vnBed,voBed,viBed,vtBed;
-
+    TextView textView,textView1,textView2,textView3,textView4,normalbed,oxygenbed,icubed,tBed,vnBed,voBed,viBed;
+TextView vtBed;
     View v;
     Button BookNow;
     FirebaseDatabase fbase=FirebaseDatabase.getInstance();
@@ -98,11 +98,13 @@ public class view extends AppCompatActivity {
                     viBed.setText(upibed);
 
 
+                    //String totalv=Integer.parseInt(upibed)+Integer.parseInt(upnbed)+Integer.parseInt(upobed);
                     // String key =  dref.push().getKey();
                     // datas.child("key").setValue(key);
 
-                    int vbed=Integer.parseInt(upibed)+Integer.parseInt(upnbed)+Integer.parseInt(upobed);
-                    vtBed.setText(vbed);
+                    int totalv=Integer.valueOf(upibed)+Integer.valueOf(upnbed)+Integer.valueOf(upobed);
+
+                    vtBed.setText(String.valueOf(totalv));
 
                 }
             }

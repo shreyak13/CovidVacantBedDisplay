@@ -42,7 +42,7 @@ public class addisolation extends AppCompatActivity {
         capasitya=findViewById(R.id.iccapsity);
         adressa=findViewById(R.id.icaddress);
         contacta=findViewById(R.id.iccontact);
-        add=findViewById(R.id.icupdate);
+        add=findViewById(R.id.icadd);
         normalbeda=findViewById(R.id.inormalbed);
         oxygenbeda=findViewById(R.id.ioxygenbed);
 

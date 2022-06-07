@@ -142,7 +142,13 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-android:text="Add"/>
+        android:text="Add Hospital Details"/>
+    <Button
+        android:id="@+id/update"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Hospital Details"/>
 
 
 </LinearLayout>

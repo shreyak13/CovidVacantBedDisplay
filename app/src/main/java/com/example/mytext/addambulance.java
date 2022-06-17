@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +17,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -73,7 +77,8 @@ public class addambulance extends AppCompatActivity {
                 String type=typea.getText().toString();
                 String address=adressa.getText().toString();
                 String cont=contacta.getText().toString();
-
+                SharedPreferences shared=getSharedPreferences("myKey",MODE_PRIVATE);
+                String stre=shared.getString("email","");
                 if(!(name.isEmpty()&&type.isEmpty()&&address.isEmpty()&&cont.isEmpty() && imageuri!=null)){
 
 
@@ -92,6 +97,7 @@ public class addambulance extends AppCompatActivity {
                                     newpost.child("type").setValue(type);
                                     newpost.child("address").setValue(address);
                                     newpost.child("contact").setValue(cont);
+                                    newpost.child("stre").setValue(stre);
                                     newpost.child("image").setValue(task.getResult().toString());
 
 
@@ -105,6 +111,38 @@ public class addambulance extends AppCompatActivity {
                 typea.setText("");
                 contacta.setText("");
                 adressa.setText("");
+            }
+        });
+        SharedPreferences shared=getSharedPreferences("myKey",MODE_PRIVATE);
+        String stre=shared.getString("email","");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Ambulance");
+
+        reference.orderByChild("stre").equalTo(stre).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot datas: dataSnapshot.getChildren()){
+                    String name=datas.child("name").getValue().toString();
+                    String type=datas.child("type").getValue().toString();
+                    String contact=datas.child("contact").getValue().toString();
+                    String address=datas.child("address").getValue().toString();
+
+                    namea.setText(name);
+                    typea.setText(type);
+                    adressa.setText(address);
+                    contacta.setText(contact);
+
+
+                    if(namea!=null){
+                        add.setVisibility(View.GONE);
+                    }
+                    // String key =  dref.push().getKey();
+                    // datas.child("key").setValue(key);
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
             }
         });
     }

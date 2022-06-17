@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -16,15 +17,18 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 public class addisolation extends AppCompatActivity {
-    EditText namea,typea,capasitya,adressa,contacta,normalbeda,oxygenbeda;
-    Button add;
+    EditText namea,typea,capasitya,adressa,contacta,normalbeda,oxygenbeda,icua;
+    Button add,update;
     FirebaseStorage storage;
     FirebaseDatabase fbase;
     DatabaseReference dref;
@@ -45,7 +49,8 @@ public class addisolation extends AppCompatActivity {
         add=findViewById(R.id.icadd);
         normalbeda=findViewById(R.id.inormalbed);
         oxygenbeda=findViewById(R.id.ioxygenbed);
-
+        icua=findViewById(R.id.iicubed);
+        update=findViewById(R.id.icupdate);
         fbase=FirebaseDatabase.getInstance();
         dref= fbase.getReference().child("isolation centre");
         storage=FirebaseStorage.getInstance();
@@ -56,6 +61,51 @@ public class addisolation extends AppCompatActivity {
                 Intent intent=new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 startActivityForResult(intent,gallarycode);
+            }
+        });
+        SharedPreferences shared=getSharedPreferences("myKey",MODE_PRIVATE);
+        String stre=shared.getString("email","");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("isolation centre");
+
+        reference.orderByChild("stre").equalTo(stre).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot datas: dataSnapshot.getChildren()){
+                    String name=datas.child("name").getValue().toString();
+                    String type=datas.child("type").getValue().toString();
+                    String capasity=datas.child("bed").getValue().toString();
+                    String contact=datas.child("contact").getValue().toString();
+                    String address=datas.child("address").getValue().toString();
+                    String normalBed=datas.child("normalBed").getValue().toString();
+                    String oxygenBed=datas.child("oxygenBed").getValue().toString();
+                    String icuBed=datas.child("icuBed").getValue().toString();
+                    namea.setText(name);
+                    typea.setText(type);
+                    capasitya.setText(capasity);
+                    adressa.setText(address);
+                    contacta.setText(contact);
+                    normalbeda.setText(normalBed);
+                    oxygenbeda.setText(oxygenBed);
+                    icua.setText(icuBed);
+
+                    if(namea!=null){
+                        add.setVisibility(View.GONE);
+                    }
+                    // String key =  dref.push().getKey();
+                    // datas.child("key").setValue(key);
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
             }
         });
 
@@ -78,8 +128,11 @@ public class addisolation extends AppCompatActivity {
                 String bed=capasitya.getText().toString();
                 String nbed=normalbeda.getText().toString();
                 String obed=normalbeda.getText().toString();
+                String ibed=icua.getText().toString();
                 String address=adressa.getText().toString();
                 String cont=contacta.getText().toString();
+                SharedPreferences shared=getSharedPreferences("myKey",MODE_PRIVATE);
+                String stre=shared.getString("email","");
 
                 if(!(name.isEmpty()&&type.isEmpty()&&bed.isEmpty()&&address.isEmpty()&&cont.isEmpty())){
 
@@ -100,12 +153,13 @@ public class addisolation extends AppCompatActivity {
                                     inewpost.child("bed").setValue(bed);
                                     inewpost.child("normalBed").setValue(nbed);
                                     inewpost.child("oxygenBed").setValue(obed);
+                                    inewpost.child("icuBed").setValue(ibed);
                                     inewpost.child("address").setValue(address);
                                     inewpost.child("contact").setValue(cont);
                                     inewpost.child("image").setValue(task.getResult().toString());
                                     String key =  dref.push().getKey();
                                     inewpost.child("key").setValue(key);
-
+                                    inewpost.child("stre").setValue(stre);
                                 }
                             });
                         }
@@ -119,7 +173,12 @@ public class addisolation extends AppCompatActivity {
                 adressa.setText("");
                 normalbeda.setText("");
                 oxygenbeda.setText("");
+                icua.setText("");
+
+
             }
         });
+
+
     }
 }

@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".faq"
-    android:layout_marginBottom="10dp">
+
+    android:background="#E996AF77"
+    android:padding="10dp"
+    tools:context=".faq">
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="150dp"
         android:text="Frequently Asked Question"
         android:textSize="20sp"
-        android:layout_marginStart="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/faqRecycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,13 +25,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/faqRecycler"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="729dp"
-        android:layout_margin="10dp"
-        android:layout_marginLeft="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-       android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

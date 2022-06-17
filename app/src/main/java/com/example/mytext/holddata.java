@@ -11,7 +11,7 @@ public class holddata  {
     String image;
     String normalBed;
     String oxygenBed;
-    String ICUBed;
+    String ICUBed,stre;
 
     public holddata() {
 
@@ -27,8 +27,11 @@ public class holddata  {
         this.normalBed=normalBed;
         this.oxygenBed=oxygenBed;
         this.ICUBed=ICUBed;
+        this.stre=stre;
 
     }
+
+
 
     public String getName() {
         return name;

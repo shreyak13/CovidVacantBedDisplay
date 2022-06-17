@@ -7,60 +7,65 @@
     tools:context=".admin"
     android:orientation="vertical"
     android:layout_gravity="center"
+    android:background="#1ee"
     >
     <TextView
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Admin"
+        android:text="ADMIN LOGIN"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_gravity="center"
         android:gravity="center"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
+
         android:layout_marginTop="30dp">
 
         <Button
+
             android:id="@+id/addupdte"
-            android:layout_width="110dp"
-            android:layout_height="130dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            android:text="Add and update hospital details"/>
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="6dp"
+            android:text="Add and update hospital details" />
+
         <Button
             android:id="@+id/addisolation"
-            android:layout_width="110dp"
-            android:layout_height="130dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            android:text="Add and update isolation centre details"/>
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:layout_marginStart="20dp"
+            android:text="Add and update isolation centre details" />
+
+
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp">
         <Button
             android:id="@+id/bedupdate"
-            android:layout_width="110dp"
-            android:layout_height="130dp"
-
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginStart="50dp"
             android:text="Add and update bed" />
 
         <Button
             android:id="@+id/addambulance"
-            android:layout_width="110dp"
-
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            android:layout_height="130dp"
-            android:layout_marginStart="50dp"
-            android:text="Add and update ambulance details"/>
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/buttonshape"
+            android:text="Add and update ambulance details" />
 
 
     </LinearLayout>
@@ -71,15 +76,15 @@
 
         <Button
             android:id="@+id/addadmin"
-            android:layout_width="110dp"
-            android:layout_height="130dp"
-            android:layout_marginStart="50dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/buttonshape"
             android:text="create new admin" />
 
 
-
-
     </LinearLayout>
+
     <Button
         android:layout_marginTop="10dp"
         android:id="@+id/adminout"

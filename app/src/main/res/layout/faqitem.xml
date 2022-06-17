@@ -4,14 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="10dp"
     android:id="@+id/card"
+    android:background="#dc1"
     >
 
     <LinearLayout
         android:id="@+id/faqRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#B4FF9800"
         android:orientation="vertical">
 
 
@@ -20,15 +21,17 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     >
+
     <TextView
         android:id="@+id/faqQuestion"
-        android:layout_width="310dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+
+        android:background="#B4FF9800"
         android:text="TextView"
+        android:padding="20dp"
         android:textSize="14sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="15dp"
-       />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/expandAns"
@@ -46,12 +49,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone">
+
             <TextView
                 android:id="@+id/faqAnswer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:padding="5dp"/>
+                android:background="#B78BC34A"
+                android:padding="20dp"
+                android:text="TextView" />
 
         </LinearLayout>
 

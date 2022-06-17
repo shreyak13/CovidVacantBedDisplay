@@ -7,6 +7,7 @@
     tools:context=".user"
     android:orientation="vertical"
     android:layout_gravity="center"
+    android:background="#1ee"
    >
 
 
@@ -18,6 +19,8 @@
         android:text="User Page"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:gravity="center"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,21 +29,22 @@
 
         <Button
             android:id="@+id/hospital"
-            android:layout_width="110dp"
+            android:layout_width="130dp"
             android:layout_height="130dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/buttonshape"
             android:text="Hospital"/>
 
         <Button
             android:id="@+id/ioslation"
-            android:layout_width="110dp"
+            android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="2dp"
-
+            android:background="@drawable/buttonshape"
             android:layout_marginBottom="10dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="30dp"
             android:text="Isolation Centre" />
     </LinearLayout>
     <LinearLayout
@@ -50,22 +54,21 @@
 
         <Button
             android:id="@+id/ambulance"
-            android:layout_width="110dp"
-
+            android:layout_width="130dp"
+            android:background="@drawable/buttonshape"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:layout_height="130dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="30dp"
             android:text="Ambulance"/>
 
         <Button
             android:id="@+id/userquery"
-            android:layout_width="110dp"
-
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="10dp"
+            android:layout_width="130dp"
+            android:background="@drawable/buttonshape"
+            android:layout_marginTop="5dp"
             android:layout_height="130dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="30dp"
             android:text="FAQ" />
     </LinearLayout>
 

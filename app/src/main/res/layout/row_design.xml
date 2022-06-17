@@ -1,97 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    app:cardElevation="8dp"
-    app:cardCornerRadius="8dp"
-    android:layout_margin="16dp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
-    >
-<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:id="@+id/row"
-    >
+    android:layout_margin="16dp"
+    android:background="@drawable/buttonshape"
+    android:orientation="vertical"
+    app:cardBackgroundColor="#88F44336"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="113dp"
-        android:layout_height="133dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="5dp"
-        android:src="@color/browser_actions_bg_grey"
+    <LinearLayout
+        android:id="@+id/row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="113dp"
+            android:layout_height="133dp"
 
-    <TextView
-        android:id="@+id/tvname"
-        android:layout_width="250dp"
-        android:layout_height="30dp"
+            android:src="@color/browser_actions_bg_grey"
 
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="112dp"
-        android:text="name"
-        android:textSize="20sp" />
+            />
 
-    <TextView
-        android:id="@+id/tvAddress"
-        android:layout_width="250dp"
-        android:layout_height="30dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="112dp"
-        android:text="address" />
-
-    <TextView
-        android:id="@+id/tvtype"
-        android:layout_width="250dp"
-        android:layout_height="20dp"
-
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="112dp"
-        android:text="type"
-         />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="40dp">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Total Vacant Bed"
-        android:textSize="20sp"/>
-
-    <TextView
-        android:id="@+id/tvdetails"
-        android:layout_width="47dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="112dp"
-        android:gravity="center"
-        android:text="details"
-        android:textSize="23sp" />
-</LinearLayout>
+            <TextView
+                android:id="@+id/tvname"
+                android:layout_width="260dp"
+                android:layout_height="30dp"
 
 
+                android:layout_marginEnd="112dp"
+                android:text="name"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="112dp"
+                android:text="address" />
+
+            <TextView
+                android:id="@+id/tvtype"
+                android:layout_width="250dp"
+                android:layout_height="20dp"
+
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="112dp"
+                android:text="type" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+
+                    android:text="Total Vacant Bed"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvdetails"
+                    android:layout_width="47dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="112dp"
+                    android:gravity="center"
+                    android:text="details"
+                    android:textSize="23sp" />
+            </LinearLayout>
 
 
+        </LinearLayout>
 
-</LinearLayout>
 
-
-</LinearLayout>
-
+    </LinearLayout>
 
 
 </androidx.cardview.widget.CardView>

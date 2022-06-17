@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".bookNOW"
     android:layout_gravity="center"
-    android:layout_margin="20dp">
+    android:background="#4AA1B4EA"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".bookNOW">
 
 
     <TextView
@@ -15,55 +16,79 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
         android:layout_marginTop="2dp"
+        android:gravity="center"
         android:text="BOOK NOW"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/bName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Name"/>
+        android:padding="10dp"
+        android:background="@drawable/editshape"
+        android:backgroundTint="#8FDD653F"
+        android:hint="Name" />
+
     <EditText
         android:id="@+id/bAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Address"/>
+        android:background="@drawable/editshape"
+        android:backgroundTint="#8FDD653F"
+        android:padding="10dp"
+        android:hint="Address" />
+
     <EditText
         android:id="@+id/bContact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Contact Number"/>
+        android:background="@drawable/editshape"
+        android:backgroundTint="#8FDD653F"
+        android:padding="10dp"
+        android:hint="Contact Number" />
+
     <EditText
         android:id="@+id/bCondition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Patient condition"/>
+        android:background="@drawable/editshape"
+        android:backgroundTint="#8FDD653F"
+        android:padding="10dp"
+        android:hint="Patient condition" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:textSize="15sp"
-        android:text="Choose(Normal/Serious/Very Serious)"/>
+        android:background="@drawable/editshape"
+        android:backgroundTint="#8FDD653F"
+        android:padding="10dp"
+        android:text="Choose(Normal/Serious/Very Serious)"
+        android:textSize="15sp" />
+
     <EditText
         android:id="@+id/bAmbulance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Do You Need Ambulance?  (Yes/No)"/>
+        android:background="@drawable/editshape"
+        android:backgroundTint="#8FDD653F"
+        android:padding="10dp"
+        android:hint="Do You Need Ambulance?  (Yes/No)" />
 
     <Button
         android:id="@+id/bookNOW"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:text="Book Now"
-        android:layout_marginTop="10dp"/>
-
+        android:background="@drawable/buttonshape"/>
 
 
 </LinearLayout>

@@ -3,74 +3,94 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_gravity="center"
+        android:background="@drawable/buttonshape"
+        android:backgroundTint="#AE8DE8"
         android:gravity="center"
-        android:layout_margin="10dp">
+        android:orientation="vertical"
+        android:padding="10dp">
 
 
         <ImageView
             android:id="@+id/aImage"
-            android:layout_gravity="center"
             android:layout_width="250dp"
             android:layout_height="150dp"
+            android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <TextView
             android:id="@+id/aName"
-            android:hint="name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"/>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/aType"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:hint="type"
-        android:layout_marginTop="5dp"/>
-    <TextView
-        android:id="@+id/show"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Show More"
-        android:textStyle="bold"
-       android:gravity="center"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="15dp"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/editshape"
+            android:padding="10dp"
+            android:hint="name" />
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+      >
+
+            <TextView
+                android:id="@+id/aType"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/editshape"
+                android:padding="10dp"
+                android:hint="type" />
+
+            <TextView
+                android:id="@+id/show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:text="Show More"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cardView">
+            android:background="#AE8DE8">
+
             <LinearLayout
+                android:id="@+id/showLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/showLayout"
+                android:background="#AE8DE8"
+                android:backgroundTint="#AE8DE8"
                 android:visibility="gone">
+
                 <TextView
                     android:id="@+id/aAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="address"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/editshape"
+                    android:padding="10dp"
+                    android:hint="address" />
 
                 <TextView
                     android:id="@+id/aContact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="contact"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/editshape"
+                    android:padding="10dp"
+                    android:hint="contact" />
 
 
             </LinearLayout>

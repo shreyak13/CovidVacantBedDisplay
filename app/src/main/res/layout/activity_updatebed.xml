@@ -6,15 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".updatebed"
     android:orientation="vertical"
-    android:layout_margin="20dp">
+    android:background="#b89"
+    android:padding="20dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update Bed Details"
         android:gravity="center"
+        android:textStyle="bold"
         android:layout_marginTop="50sp"
-        android:textSize="20sp"/>
+        android:textSize="30sp"/>
 
     <TextView
 
@@ -57,13 +59,17 @@
                 android:layout_height="match_parent"
                 android:text="Normal Bed"
                 android:textSize="20sp"
+                android:background="#abd"
                 android:layout_weight="4"
                 android:padding="10dp"
                 android:textStyle="bold"/>
             <EditText
                 android:id="@+id/upNoBed"
                 android:layout_width="0dp"
+                android:layout_marginStart="5dp"
+                android:textAlignment="center"
                 android:layout_height="match_parent"
+                android:background="@drawable/editshape"
                 >
             </EditText>
         </TableRow>
@@ -75,12 +81,16 @@
                 android:text="Oxygen Bed"
                 android:textSize="20sp"
                 android:layout_weight="4"
+                android:background="#abd"
                 android:padding="10dp"
                 android:textStyle="bold"/>
             <EditText
                 android:id="@+id/upOxBed"
                 android:layout_width="204dp"
+                android:textAlignment="center"
                 android:layout_height="match_parent"
+                android:background="@drawable/editshape"
+                android:layout_marginStart="5dp"
                 >
             </EditText>
         </TableRow>
@@ -91,6 +101,7 @@
                 android:layout_height="match_parent"
                 android:text="ICU Bed"
                 android:textSize="20sp"
+                android:background="#abd"
                 android:layout_weight="4"
                 android:padding="10dp"
                 android:textStyle="bold"/>
@@ -98,6 +109,9 @@
                 android:id="@+id/upIcuBed"
                 android:layout_width="204dp"
                 android:layout_height="match_parent"
+                android:background="@drawable/editshape"
+                android:textAlignment="center"
+                android:layout_marginStart="5dp"
                 >
             </EditText>
         </TableRow>

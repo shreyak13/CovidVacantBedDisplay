@@ -26,9 +26,11 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.HashMap;
+
 public class addambulance extends AppCompatActivity {
     EditText namea,typea,adressa,contacta;
-    Button add;
+    Button add,update;
     FirebaseStorage storage;
     FirebaseDatabase fbase;
     DatabaseReference dref;
@@ -49,7 +51,7 @@ public class addambulance extends AppCompatActivity {
         fbase=FirebaseDatabase.getInstance();
         dref= fbase.getReference().child("Ambulance");
         storage=FirebaseStorage.getInstance();
-
+        update=findViewById(R.id.Aupdate);
 
 
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +62,89 @@ public class addambulance extends AppCompatActivity {
                 startActivityForResult(intent,gallarycode);
             }
         });
+        SharedPreferences shared=getSharedPreferences("myKey",MODE_PRIVATE);
+        String stre=shared.getString("email","");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Ambulance");
+
+        reference.orderByChild("stre").equalTo(stre).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot datas: dataSnapshot.getChildren()){
+                    String name=datas.child("name").getValue().toString();
+                    String type=datas.child("type").getValue().toString();
+                    String contact=datas.child("contact").getValue().toString();
+                    String address=datas.child("address").getValue().toString();
+
+                    namea.setText(name);
+                    typea.setText(type);
+                    adressa.setText(address);
+                    contacta.setText(contact);
+
+
+                    if(namea!=null){
+                        add.setVisibility(View.GONE);
+                    }
+
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                String name=namea.getText().toString();
+                String type=typea.getText().toString();
+
+                String address=adressa.getText().toString();
+                String cont=contacta.getText().toString();
+                HashMap<String,Object> uphospital=new HashMap<>();
+
+                uphospital.put("name",name);
+                uphospital.put("type",type);
+                uphospital.put("address",address);
+                uphospital.put("contact",cont);
+
+       /* namea.setText(name);
+        typea.setText(type);
+        capasitya.setText(bed);
+        adressa.setText(address);
+        contacta.setText(cont);
+        normalbeda.setText(Nbed);
+        oxygenbeda.setText(Obed);
+        icubeda.setText(Ibed);*/
+
+
+
+                DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference("Ambulance");
+
+                dbRef.orderByChild("stre").equalTo(stre).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot datas : snapshot.getChildren()) {
+                            String str = datas.child("stre").getValue().toString();
+                            datas.getRef().updateChildren(uphospital).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(getApplicationContext(), "Ambulance Details Updated", Toast.LENGTH_SHORT).show();
+                                }
+                            }); }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        });
+
+
 
     }
 
@@ -113,38 +198,7 @@ public class addambulance extends AppCompatActivity {
                 adressa.setText("");
             }
         });
-        SharedPreferences shared=getSharedPreferences("myKey",MODE_PRIVATE);
-        String stre=shared.getString("email","");
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Ambulance");
-
-        reference.orderByChild("stre").equalTo(stre).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot datas: dataSnapshot.getChildren()){
-                    String name=datas.child("name").getValue().toString();
-                    String type=datas.child("type").getValue().toString();
-                    String contact=datas.child("contact").getValue().toString();
-                    String address=datas.child("address").getValue().toString();
-
-                    namea.setText(name);
-                    typea.setText(type);
-                    adressa.setText(address);
-                    contacta.setText(contact);
-
-
-                    if(namea!=null){
-                        add.setVisibility(View.GONE);
-                    }
-                    // String key =  dref.push().getKey();
-                    // datas.child("key").setValue(key);
-
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
     }
 
 

@@ -145,31 +145,25 @@ public class updatebed extends AppCompatActivity {
             upIcuBed.setText(upicubed);
 
             DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference("Update Bed");
-            dbRef.addValueEventListener(new ValueEventListener() {
+
+
+            dbRef.orderByChild("stre").equalTo(stre).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                     for (DataSnapshot datas : snapshot.getChildren()) {
-                        String key=reference.getKey();
-                        if(!(datas.child("stre").getValue()==stre)){
+                        String str = datas.child("stre").getValue().toString();
                         datas.getRef().updateChildren(upbed).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Toast.makeText(getApplicationContext(), "Bed Details Updated", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Hospital Details Updated", Toast.LENGTH_SHORT).show();
                             }
-                        });}
-
-
-                    }
-                      }
-
-
+                        }); }
+                }
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
                 }
-            });
-            SharedPreferences share=getSharedPreferences("bedKey",MODE_PRIVATE);
+            });            SharedPreferences share=getSharedPreferences("bedKey",MODE_PRIVATE);
             SharedPreferences.Editor editor=share.edit();
             editor.putString("unb",upnormalbed);
             editor.putString("uob",upoxygenbed);

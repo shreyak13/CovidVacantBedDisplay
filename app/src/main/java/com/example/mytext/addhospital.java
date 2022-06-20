@@ -31,10 +31,12 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+
 
 public class addhospital extends AppCompatActivity {
     EditText namea,typea,capasitya,adressa,contacta,normalbeda,oxygenbeda,icubeda;
-    Button add;
+    Button add,update;
     FirebaseStorage storage;
     FirebaseDatabase fbase;
     DatabaseReference dref;
@@ -59,7 +61,7 @@ public class addhospital extends AppCompatActivity {
         normalbeda=findViewById(R.id.normalbed);
         icubeda=findViewById(R.id.icubed);
         oxygenbeda=findViewById(R.id.oxygenbed);
-
+        update=findViewById(R.id.hUpdate);
         fbase=FirebaseDatabase.getInstance();
         dref= fbase.getReference().child("Hospitals");
         storage=FirebaseStorage.getInstance();
@@ -87,6 +89,8 @@ public class addhospital extends AppCompatActivity {
                   String normalBed=datas.child("normalBed").getValue().toString();
                   String oxygenBed=datas.child("oxygenBed").getValue().toString();
                   String icuBed=datas.child("ICUBed").getValue().toString();
+                  String key=datas.child("key").getValue().toString();
+                  String str=datas.child("stre").getValue().toString();
                   namea.setText(name);
                   typea.setText(type);
                   capasitya.setText(capasity);
@@ -109,6 +113,64 @@ public class addhospital extends AppCompatActivity {
 
           }
       });
+        update.setOnClickListener(new View.OnClickListener() {
+         @Override
+            public void onClick(View v) {
+
+
+        String name=namea.getText().toString();
+        String type=typea.getText().toString();
+        String bed=capasitya.getText().toString();
+        String address=adressa.getText().toString();
+        String cont=contacta.getText().toString();
+        String Nbed=normalbeda.getText().toString();
+        String Obed=oxygenbeda.getText().toString();
+        String Ibed=icubeda.getText().toString();
+
+        HashMap<String,Object> uphospital=new HashMap<>();
+
+        uphospital.put("name",name);
+        uphospital.put("type",type);
+        uphospital.put("bed",bed);
+        uphospital.put("address",address);
+        uphospital.put("contact",cont);
+        uphospital.put("normalBed",Nbed);
+        uphospital.put("oxygenBed",Obed);
+        uphospital.put("ICUBed",Ibed);
+
+       /* namea.setText(name);
+        typea.setText(type);
+        capasitya.setText(bed);
+        adressa.setText(address);
+        contacta.setText(cont);
+        normalbeda.setText(Nbed);
+        oxygenbeda.setText(Obed);
+        icubeda.setText(Ibed);*/
+
+
+
+        DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference("Hospitals");
+
+          dbRef.orderByChild("stre").equalTo(stre).addListenerForSingleValueEvent(new ValueEventListener() {
+              @Override
+              public void onDataChange(@NonNull DataSnapshot snapshot) {
+                  for (DataSnapshot datas : snapshot.getChildren()) {
+                      String str = datas.child("stre").getValue().toString();
+                      datas.getRef().updateChildren(uphospital).addOnSuccessListener(new OnSuccessListener<Void>() {
+                          @Override
+                          public void onSuccess(Void unused) {
+                              Toast.makeText(getApplicationContext(), "Hospital Details Updated", Toast.LENGTH_SHORT).show();
+                          }
+                      }); }
+              }
+              @Override
+              public void onCancelled(@NonNull DatabaseError error) {
+
+              }
+          });
+
+    }
+});
 
 
     }

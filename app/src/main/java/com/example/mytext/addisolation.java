@@ -26,6 +26,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.HashMap;
+
 public class addisolation extends AppCompatActivity {
     EditText namea,typea,capasitya,adressa,contacta,normalbeda,oxygenbeda,icua;
     Button add,update;
@@ -106,8 +108,65 @@ public class addisolation extends AppCompatActivity {
             public void onClick(View v) {
 
 
+                String name=namea.getText().toString();
+                String type=typea.getText().toString();
+                String bed=capasitya.getText().toString();
+                String address=adressa.getText().toString();
+                String cont=contacta.getText().toString();
+                String Nbed=normalbeda.getText().toString();
+                String Obed=oxygenbeda.getText().toString();
+                String Ibed=icua.getText().toString();
+
+                HashMap<String,Object> uphospital=new HashMap<>();
+
+                uphospital.put("name",name);
+                uphospital.put("type",type);
+                uphospital.put("bed",bed);
+                uphospital.put("address",address);
+                uphospital.put("contact",cont);
+                uphospital.put("normalBed",Nbed);
+                uphospital.put("oxygenBed",Obed);
+                uphospital.put("ICUBed",Ibed);
+
+       /* namea.setText(name);
+        typea.setText(type);
+        capasitya.setText(bed);
+        adressa.setText(address);
+        contacta.setText(cont);
+        normalbeda.setText(Nbed);
+        oxygenbeda.setText(Obed);
+        icubeda.setText(Ibed);*/
+
+
+
+                DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference("isolation centre");
+
+                dbRef.orderByChild("stre").equalTo(stre).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot datas : snapshot.getChildren()) {
+                            String str = datas.child("stre").getValue().toString();
+                            datas.getRef().updateChildren(uphospital).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(getApplicationContext(), "Isolation Centre Details Updated", Toast.LENGTH_SHORT).show();
+                                }
+                            }); }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
             }
         });
+
+
+        DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference("Hospitals");
+
+
+
 
 
 

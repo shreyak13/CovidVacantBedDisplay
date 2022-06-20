@@ -188,7 +188,7 @@
                     android:text="Add     Hospital Details" />
 
                 <Button
-                    android:id="@+id/update"
+                    android:id="@+id/hUpdate"
                     android:background="@drawable/shape"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

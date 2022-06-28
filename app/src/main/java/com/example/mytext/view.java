@@ -67,6 +67,7 @@ TextView vtBed;
         String Nbed=extras.getString("normalBed");
         String Obed=extras.getString("oxygenBed");
         String IBed=extras.getString("ICUBed");
+        String email=extras.getString("stre");
 
 
         textView.setText(name);
@@ -85,7 +86,7 @@ TextView vtBed;
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Update Bed");
 
-        reference.orderByChild("stre").equalTo(stre).addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.orderByChild("stre").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot datas: dataSnapshot.getChildren()){

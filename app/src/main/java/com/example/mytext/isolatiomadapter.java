@@ -68,6 +68,7 @@ public class isolatiomadapter extends RecyclerView.Adapter<isolatiomadapter.View
                 i.putExtra("normalBed",dataholder1.getNormalBed());
                 i.putExtra("oxygenBed",dataholder1.getOxygenBed());
                 i.putExtra("ICUBed",dataholder1.getICUBed());
+                i.putExtra("stre",dataholder1.getStre());
 
                 context.startActivity(i);
 

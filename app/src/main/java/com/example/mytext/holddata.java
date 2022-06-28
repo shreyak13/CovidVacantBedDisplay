@@ -17,7 +17,9 @@ public class holddata  {
 
     }
 
-    public holddata(String name, String type, String bed, String address, String contact, String image,String normalBed,String oxygenBed,String ICUBed) {
+
+
+    public holddata(String stre, String name, String type, String bed, String address, String contact, String image, String normalBed, String oxygenBed, String ICUBed) {
         this.name = name;
         this.type = type;
         this.bed = bed;
@@ -31,7 +33,13 @@ public class holddata  {
 
     }
 
+    public String getStre() {
+        return stre;
+    }
 
+    public void setStre(String stre) {
+        this.stre = stre;
+    }
 
     public String getName() {
         return name;

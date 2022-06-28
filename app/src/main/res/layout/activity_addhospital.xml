@@ -50,6 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textColor="@color/black"
                 android:background="@drawable/editshape"/>
             <TextView
                 android:id="@+id/textView3"
@@ -66,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textColor="@color/black"
                 android:background="@drawable/editshape"/>
             <TextView
                 android:id="@+id/textView4"
@@ -81,6 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textColor="@color/black"
                 android:background="@drawable/editshape"/>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -101,11 +104,13 @@
                         android:id="@+id/normalbed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:background="@drawable/editshape"
                         />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="100dp"
+
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
@@ -120,6 +125,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
+                        android:textColor="@color/black"
                         android:background="@drawable/editshape"/>
                 </LinearLayout>
                 <LinearLayout
@@ -158,6 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textColor="@color/black"
                 android:background="@drawable/editshape"/>
             <TextView
                 android:id="@+id/textView6"
@@ -173,6 +180,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textColor="@color/black"
                 android:background="@drawable/editshape"/>
             <LinearLayout
                 android:layout_width="match_parent"
